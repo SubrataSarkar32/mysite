@@ -8,9 +8,19 @@ https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/
 """
 
 import os
+import sys
 
-from django.core.wsgi import get_wsgi_application
+# ADD YOUR PROJECT TO THE PYTHONPATH FOR THE PYTHON INSTANCE
+path = '/home/SubrataSarkar32/mysite'
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+if path not in sys.path:
+    sys.path.append(path)
 
-application = get_wsgi_application()
+os.chdir(path)
+
+# TELL DJANGO WHERE YOUR SETTINGS MODULE IS LOCATED
+os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
+
+# IMPORT THE DJANGO WSGI HANDLER TO TAKE CARE OF REQUESTS
+import django.core.handlers.wsgi
+application = django.core.handlers.wsgi.WSGIHandler()
