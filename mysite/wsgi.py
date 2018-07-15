@@ -8,19 +8,10 @@ https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/
 """
 
 import os
-import sys
+from django.core.wsgi import get_wsgi_application
+from whitenoise.django import DjangoWhiteNoise
 
-# ADD YOUR PROJECT TO THE PYTHONPATH FOR THE PYTHON INSTANCE
-path = '/home/SubrataSarkar32/mysite'
-
-if path not in sys.path:
-    sys.path.append(path)
-
-os.chdir(path)
-
-# TELL DJANGO WHERE YOUR SETTINGS MODULE IS LOCATED
 os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
 
-# IMPORT THE whitenoise DJANGO WSGI HANDLER TO TAKE CARE OF REQUESTS
-from whitenoise.django import DjangoWhiteNoise
+application = get_wsgi_application()
 application = DjangoWhiteNoise(application)
