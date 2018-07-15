@@ -21,6 +21,6 @@ os.chdir(path)
 # TELL DJANGO WHERE YOUR SETTINGS MODULE IS LOCATED
 os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
 
-# IMPORT THE DJANGO WSGI HANDLER TO TAKE CARE OF REQUESTS
-import django.core.handlers.wsgi
-application = django.core.handlers.wsgi.WSGIHandler()
+# IMPORT THE whitenoise DJANGO WSGI HANDLER TO TAKE CARE OF REQUESTS
+from whitenoise.django import DjangoWhiteNoise
+application = DjangoWhiteNoise(application)
