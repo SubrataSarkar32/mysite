@@ -140,9 +140,9 @@ function checkTime(i) {
 </div>
 
 <div class="topnav">
-  <a href="http://subratasarkar32.pythonanywhere.com/home">Home</a>
-  <a href="http://subratasarkar32.pythonanywhere.com/admin">Admin</a>
-  <a href="http://subratasarkar32.pythonanywhere.com/polls">Poll</a>
+  <a href="/home">Home</a>
+  <a href="/admin">Admin</a>
+  <a href="/polls">Poll</a>
   <a href="#" >Link</a>
   <a href="#" style="float:right">{{ current_date| date:"D d M Y" }}<div id="txt"></div></a>
 </div>
